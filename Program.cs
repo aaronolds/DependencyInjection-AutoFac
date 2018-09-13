@@ -11,8 +11,8 @@ namespace DependencyInjection_AutoFac
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<ConsoleOutput>().As<IOutput>();
-            builder.RegisterType<TodayWriter>().Keyed<IDateWriter>("Today");
-            builder.RegisterType<TomorrowWriter>().Keyed<IDateWriter>("Tomorrow");;
+            builder.RegisterType<TodayWriter>().Keyed<IDateWriter>("Today").PropertiesAutowired();
+            builder.RegisterType<TomorrowWriter>().Keyed<IDateWriter>("Tomorrow").PropertiesAutowired();
             Container = builder.Build();
 
             // The WriteDate method is where we'll make use

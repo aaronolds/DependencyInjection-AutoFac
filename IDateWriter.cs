@@ -6,6 +6,7 @@ namespace DependencyInjection_AutoFac
     // is abstracted behind an interface.
     public interface IDateWriter
     {
+        IOutput Output { get; set; }
         void WriteDate();
     }
 }

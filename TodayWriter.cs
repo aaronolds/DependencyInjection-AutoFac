@@ -11,16 +11,15 @@ namespace DependencyInjection_AutoFac
     // or a different date.
     public class TodayWriter : IDateWriter
     {
-        private IOutput _output;
-
-        public TodayWriter(IOutput output)
+        public TodayWriter()
         {
-            this._output = output;
         }
+
+        public IOutput Output { get; set; }
 
         public void WriteDate()
         {
-            this._output.Write(DateTime.Today.ToShortDateString());
+            Output.Write(DateTime.Today.ToShortDateString());
         }
     }
 }
