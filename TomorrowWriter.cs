@@ -5,8 +5,11 @@ namespace DependencyInjection_AutoFac
     // What happens when we have two IDateWriters?
     public class TomorrowWriter : IDateWriter
     {
-        public TomorrowWriter()
+        private readonly ISomeService someService;
+
+        public TomorrowWriter(ISomeService someService)
         {
+            this.someService = someService;
         }
 
         public IOutput Output { get; set; }

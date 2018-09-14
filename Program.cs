@@ -11,6 +11,7 @@ namespace DependencyInjection_AutoFac
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<ConsoleOutput>().As<IOutput>();
+            builder.RegisterType<SomeService>().As<ISomeService>().OnActivating(e => e.Instance.SayHi());
             builder.RegisterType<TodayWriter>().Keyed<IDateWriter>("Today").PropertiesAutowired();
             builder.RegisterType<TomorrowWriter>().Keyed<IDateWriter>("Tomorrow").PropertiesAutowired();
             Container = builder.Build();

@@ -11,8 +11,11 @@ namespace DependencyInjection_AutoFac
     // or a different date.
     public class TodayWriter : IDateWriter
     {
-        public TodayWriter()
+        private readonly ISomeService someService;
+
+        public TodayWriter(ISomeService someService)
         {
+            this.someService = someService;
         }
 
         public IOutput Output { get; set; }
